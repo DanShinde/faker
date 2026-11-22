@@ -261,6 +261,12 @@ class TestEnIn:
             assert swift[:4] in EnInBankProvider.swift_bank_codes
             assert swift[4:6] == "IN"
 
+    def test_ifsc(self, faker, num_samples):
+        for _ in range(num_samples):
+            ifsc = faker.ifsc()
+            assert re.fullmatch(r"[A-Z]{4}0\d{6}", ifsc)
+            assert ifsc[:4] in EnInBankProvider.swift_bank_codes
+
 
 class TestEnPh:
     """Test en_PH bank provider"""

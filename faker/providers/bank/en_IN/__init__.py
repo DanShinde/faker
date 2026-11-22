@@ -70,3 +70,14 @@ class Provider(BankProvider):
     def bank(self) -> str:
         """Generate a bank name."""
         return self.random_element(self.banks)
+
+    def ifsc(self) -> str:
+        """Generate an Indian Financial System Code (IFSC).
+
+        An IFSC has 11 characters: the 4 letter bank code, a reserved ``0``
+        and a 6 character branch code.
+        Source: https://en.wikipedia.org/wiki/Indian_Financial_System_Code
+
+        :sample:
+        """
+        return f"{self.random_element(self.swift_bank_codes)}0{self.numerify('######')}"

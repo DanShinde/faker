@@ -3458,6 +3458,18 @@ class Faker:
 
     def zipcode_in_army(self) -> int: ...
     def zipcode_in_military(self) -> int: ...
+    def ifsc(self) -> str:
+        """
+        Generate an Indian Financial System Code (IFSC).
+
+        An IFSC has 11 characters: the 4 letter bank code, a reserved ``0``
+        and a 6 character branch code.
+        Source: https://en.wikipedia.org/wiki/Indian_Financial_System_Code
+
+        :sample:
+        """
+        ...
+
     def aadhaar_id(self) -> str:
         """
         Aadhaar is a 12 digit person identifier generated for residents of
